@@ -1,0 +1,182 @@
+<!doctype html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>webapp</title>
+
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="/bower_components/fullcalendar/dist/fullcalendar.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+    
+    <!-- build:js scripts/vendor/modernizr.js -->
+    <script src="/bower_components/modernizr/modernizr.js"></script>
+    <!-- endbuild -->
+  </head>
+  <body>
+    <!--[if IE]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+     
+    <!-- Nav Bar -->
+      <div class="container-fluid">
+          <div class="navbar navbar-inverse navbar-static-top" role="navigation">
+              <div class="container-fluid">
+                  <div class="navbar-header">
+                      <button type="button" class="navbar-toggle collapse" data-toggle="collapse" data-target="#main-nav">
+                          <span class="sr-only">Toggle Navigation</span>
+                          <span class="icon-bar">ggg</span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                      </button>
+                      
+                      <a class="navbar-brand" href="#"><img alt="placeholder" scr="/favicon.ico" /><span class="hidden-xs hidden-sm"></span></a>
+               <!-- Schedule --> 
+                      <ul id="pillsNav" class="nav nav-pills">
+                          <li id="calTab" role="presentation" class="active">
+                              <a href="#calendar" data-toggle="tab">Sched</a>
+                          </li>
+               <!-- Schedule End -->
+                          <li id="notesTab" role="presentation">
+                              <a href="#Notes" data-toggle="tab">Notes</a>
+                          </li>
+               <!-- Google Map -->
+                          <li id="mapTab" role="presentation">
+                              <a href="#Maps" data-toggle="tab">Maps</a>
+                          </li>
+               <!-- Google Map End -->
+                      </ul>
+                  </div>
+                  <div id="main-nav" class="collapse navbar-collapse">
+                      <ul class="nav navbar-nav navbar-right">
+                          <li class="dropdown">
+                              <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Tools<span class="caret"></span></a>
+                              <ul class="dropdown-menu" role="menu">
+                                  <li><a data-action="function1"><i class="fa fa-file-pdf-o fa-fw"></i>Function1</a></li>
+                                  <li><a data-action="function2"><i class="fa fa-file-pdf-o fa-fw"></i>Function2</a></li>
+                                  <li class="divider"></li>
+                                  <li><a data-action="function3"><i class="fa fa-file-pdf-o fa-fw"></i>Function3</a></li>
+                              </ul>
+                          </li>
+                          <li><a data-action="function4"><i class="fa fa-user-plus"></i>Function4</a></li>
+                          <li><a data-action="function5"><i class="fa fa-power-off"></i>Function5</a></li>
+                      </ul>
+                      <form class="navbar-form navbar-right address-search" role="search">
+                          <div class="form-group">
+                              <div class="input-group">
+                                  <input id="superSearch" type="text" class="form-control" placeholder="Search">
+                                  <span class="input-group-btn">
+                                      <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                                  </span>
+                              </div>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+    <!-- Main Panel -->
+          <div class="row" style="padding-bottom: 50px; height: 100%;">
+              <div id="mainPanel" class="col-sm-12">
+                  <div class="tab-content">
+                      <div id="calendar" class="tab-pane active"></div>
+                      <div id="Notes" class="tab-pane">
+                            <div class="dropdown">
+                                 <!-- Dropdown button -->
+                                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Page Selection
+                                  </button>
+                                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                       <!-- Selecting Note Page -->
+                                
+                                    <ul>
+                                         <li id="fontTab" role="presentation">
+                                            <a class="dropdown-item" href="#fontAwesome" data-toggle="tab">Font Awesome Notes</a>
+                                         </li>
+                                         <li id="jqueryTab" role="presentation">
+                                            <a class="dropdown-item" href="#jquery" data-toggle="tab">Jquery Notes</a>
+                                         </li>
+                                         <li id="bootTab" role="presentation">
+                                            <a class="dropdown-item" href="#bootstrap" data-toggle="tab">Bootstrap Notes</a>
+                                         </li>
+                                       <!-- Selecting Note Page End -->
+                                    </ul>
+                                  </div>
+                            </div>
+                            <div id="notesContent"></div>
+                      </div>
+                      <div id="Maps" class="tab-pane"></div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    
+    <!-- Google maps -->
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCiov8F5B74ZW-wPk1KbQbbFMwZsUVIGzA&callback=initMap">
+    </script>
+    <!-- Google maps end -->
+    
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. 
+    <script>
+      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+      e.src='https://www.google-analytics.com/analytics.js';
+      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+      ga('create','UA-XXXXX-X');ga('send','pageview');
+    </script>
+    -->
+      
+   
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/modernizr/modernizr.js"></script>
+    <script src="/bower_components/handlebars/handlebars.js"></script>
+    <script src="/bower_components/moment/moment.js"></script>
+    <script src="/bower_components/fullcalendar/dist/fullcalendar.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+    
+    <!-- build:js scripts/plugins.js -->
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/affix.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/alert.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/modal.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/transition.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/button.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/popover.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/carousel.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/scrollspy.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/collapse.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tab.js"></script>
+    <!-- endbuild -->
+      
+    <!-- handlebars template -->
+    <script src="templates/notes.js"></script>
+    <!-- endbuild -->
+      
+    <!-- build:js scripts/main.js -->
+    <script src="scripts/main.js"></script>
+    <script src="scripts/map.js"></script>
+    <script src="scripts/fullcalendar.js"></script>
+      
+    
+    <script src="scripts/notes/fontAwesome.js"></script>
+    <script src="scripts/notes/bootstrap.js"></script>
+    <script src="scripts/notes/jquery.js"></script>
+    <!-- endbuild -->
+  </body>
+</html>
