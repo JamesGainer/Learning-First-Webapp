@@ -1,9 +1,9 @@
 var da = window.da || {};
-//da.notes={};
 da["notes"]["jquery"] = {
     
     title: "Jquery Notes",
-    body: "What are Events?",
-    bodyTwo: "All the different visitor's actions that a web page can respond to are called events."
-
+    subtitle: "What are Events?",
+    body: "All the different visitor's actions that a web page can respond to are called events.",
+    jqueryLink: "Jquery API Documentation",
+    jqueryUrl: "http://api.jquery.com/"
 };

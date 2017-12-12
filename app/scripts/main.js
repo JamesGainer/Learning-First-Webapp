@@ -23,20 +23,27 @@ $('#notesTab a[href="#Notes"]').on('shown.bs.tab', function () {
 // fontAwesome on click
 $('#fontTab a[href="#fontAwesome"]').on('click', function () {
     'use strict';
-    $('#notesContent').html(da.templates.notes(da.notes.fontAwesome));
+    $('#notesContent').html(da.templates.fontawesomenotes(da.notes.fontAwesome));
     console.log(da.notes);
 });
 
 // Bootstrap on click
 $('#bootTab a[href="#bootstrap"]').on('click', function () {
     'use strict';
-    $('#notesContent').html(da.templates.notes(da.notes.bootstrap));
+    $('#notesContent').html(da.templates.bootstrapnotes(da.notes.bootstrap));
     console.log(da.notes);
 });
 
 //Jquery on click
 $('#jqueryTab a[href="#jquery"]').on('click', function () {
     'use strict';
-    $('#notesContent').html(da.templates.notes(da.notes.jquery));
+    $('#notesContent').html(da.templates.jquerynotes(da.notes.jquery));
+    console.log(da.notes);
+});
+
+//GitHub on click
+$('#githubTab a[href="#github"]').on('click', function () {
+    'use strict';
+    $('#notesContent').html(da.templates.githubnotes(da.notes.github));
     console.log(da.notes);
 });
