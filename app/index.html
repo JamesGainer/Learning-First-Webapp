@@ -63,14 +63,25 @@
                           <li class="dropdown">
                               <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Tools<span class="caret"></span></a>
                               <ul class="dropdown-menu" role="menu">
-                                  <li><a data-action="function1"><i class="fa fa-file-pdf-o fa-fw"></i>Function1</a></li>
-                                  <li><a data-action="function2"><i class="fa fa-file-pdf-o fa-fw"></i>Function2</a></li>
+                                  <li>
+                                      <a href="#email" data-toggle="modal"><i class="fa fa-file-pdf-o fa-fw"></i>Draft Email</a>
+                                  </li>
+                                  <li>
+                                      <a href="#newNotes" data-toggle="modal"><i class="fa fa-file-pdf-o fa-fw"></i>New Notes Page</a>
+                                  </li>
                                   <li class="divider"></li>
-                                  <li><a data-action="function3"><i class="fa fa-file-pdf-o fa-fw"></i>Function3</a></li>
+                                  <li>
+                                      <a href="#fileUpload" data-toggle="modal"><i class="fa fa-file-pdf-o fa-fw"></i>Upload File</a>
+                                  </li>
                               </ul>
                           </li>
-                          <li><a data-action="function4"><i class="fa fa-user-plus"></i>Function4</a></li>
-                          <li><a data-action="function5"><i class="fa fa-power-off"></i>Function5</a></li>
+                        <!-- Registration and Login Buttons -->
+                              <li id="registerBtn">
+                                  <a href="#register" data-toggle="modal"><i class="fa fa-user-plus"></i>Register</a>
+                              </li>
+                              <li id="loginBtn">
+                                  <a href="#login" data-toggle="modal"><i class="fa fa-power-off"></i>Login</a>
+                              </li>
                       </ul>
                       <form class="navbar-form navbar-right address-search" role="search">
                           <div class="form-group">
@@ -98,7 +109,6 @@
                                   </button>
                                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                        <!-- Selecting Note Page -->
-                                
                                     <ul>
                                          <li id="fontTab" role="presentation">
                                             <a class="dropdown-item" href="#fontAwesome" data-toggle="tab">Font Awesome Notes</a>
@@ -112,18 +122,31 @@
                                          <li id="githubTab" role="presentation">
                                             <a class="dropdown-item" href="#github" data-toggle="tab">GitHub Notes</a>
                                          </li>
+                                         <li id="handlebarsTab" role="presentation">
+                                            <a class="dropdown-item" href="#handlebars" data-toggle="tab">Handlebars Notes</a>
+                                         </li>
+                                         <li id="fullcalTab" role="presentation">
+                                            <a class="dropdown-item" href="#fullcal" data-toggle="tab">Fullcalendar Notes</a>
+                                         </li>
                                        <!-- Selecting Note Page End -->
                                     </ul>
                                   </div>
                             </div>
                             <div id="notesContent"></div>
                       </div>
-                      <div id="Maps" class="tab-pane"></div>
+                      <div id="Maps" class="tab-pane">
+                      
+                      </div>
                   </div>
               </div>
           </div>
       </div>
-    
+      
+    <!-- Modal -->
+      <div id="myModal" class="modal fade" data-show="false"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title"></h4></div><div class="modal-body"></div><div class="modal-footer"></div></div></div></div>
+      
+    <!-- Modal End -->
+      
     <!-- Google maps -->
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCiov8F5B74ZW-wPk1KbQbbFMwZsUVIGzA&callback=initMap">
@@ -141,7 +164,16 @@
     </script>
     -->
       
-   
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+    
+    <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-messaging.js"></script>
+    <!-- Firebase End -->
+      
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
     <script src="/bower_components/jquery/dist/jquery.js"></script>
@@ -172,18 +204,35 @@
     <script src="templates/bootstrapnotes.js"></script>
     <script src="templates/fontawesomenotes.js"></script>
     <script src="templates/githubnotes.js"></script>
+    <script src="templates/handlebarsnotes.js"></script>
+    <script src="templates/fullcalnotes.js"></script>
+    <script src="templates/loginform.js"></script>
+    <script src="templates/registerform.js"></script>
+    <script src="templates/newnotesform.js"></script>
+    <script src="templates/fileuploadform.js"></script>
+    <script src="templates/emailform.js"></script>
+    <script src="templates/modal.js"></script>
     <!-- endbuild -->
       
     <!-- build:js scripts/main.js -->
     <script src="scripts/main.js"></script>
     <script src="scripts/map.js"></script>
     <script src="scripts/fullcalendar.js"></script>
-      
+    <script src="scripts/databasefolder/database.js"></script>
     
     <script src="scripts/notes/fontAwesome.js"></script>
     <script src="scripts/notes/bootstrap.js"></script>
     <script src="scripts/notes/jquery.js"></script>
     <script src="scripts/notes/github.js"></script>
+    <script src="scripts/notes/handlebars.js"></script>
+    <script src="scripts/notes/fullcaltemplate.js"></script>
+      
+    <script src="scripts/register-login/register.js"></script>
+    <script src="scripts/register-login/login.js"></script>
+      
+    <script src="scripts/navbardropdownmodals/emailModal.js"></script>
+    <script src="scripts/navbardropdownmodals/fileUpload.js"></script>
+    <script src="scripts/navbardropdownmodals/newNotes.js"></script>
     <!-- endbuild -->
   </body>
 </html>

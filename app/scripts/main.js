@@ -47,3 +47,17 @@ $('#githubTab a[href="#github"]').on('click', function () {
     $('#notesContent').html(da.templates.githubnotes(da.notes.github));
     console.log(da.notes);
 });
+
+//Handlebars on click
+$('#handlebarsTab a[href="#handlebars"]').on('click', function () {
+    'use strict';
+    $('#notesContent').html(da.templates.handlebarsnotes(da.notes.handlebars));
+    console.log(da.notes);
+});
+
+//FullCalendar on click
+$('#fullcalTab a[href="#fullcal"]').on('click', function () {
+    'use strict';
+    $('#notesContent').html(da.templates.fullcalnotes(da.notes.fullcaltemplate));
+    console.log(da.notes);
+});
